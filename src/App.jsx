@@ -7,16 +7,18 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <div className="wrapper">
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        {/* <Route path="/item" element={<HomePage />} /> */}
-        {/* <Route path="/account" element={<HomePage />} /> */}
-        {/* <Route path="/signup" element={<HomePage />} /> */}
-        {/* <Route path="/login" element={<HomePage />} /> */}
-      </Routes>
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          {/* <Route path="/item" element={<HomePage />} /> */}
+          {/* <Route path="/account" element={<HomePage />} /> */}
+          {/* <Route path="/signup" element={<HomePage />} /> */}
+          {/* <Route path="/login" element={<HomePage />} /> */}
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
