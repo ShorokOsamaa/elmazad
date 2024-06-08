@@ -431,3 +431,161 @@ h5 {
     text-align: center;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*///////////////////*/
+/*///////////////////*/
+/*///////////////////*/
+
+#FormContainer{
+  position: relative;
+  width: 480px;
+  height: 420px;
+  border-radius: 8px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#FormContainer form{
+  position: relative;
+  padding: 50px 40px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: brown;
+
+  
+}
+
+#LoginFormContainer form h2{
+  color: aliceblue;
+  font-weight: 600;
+  text-align: center;
+}
+
+#FormContainer form .inputbox{
+  position: relative;
+  width: 300px;
+  margin-top: 35px;
+  text-align: left;
+
+}
+
+#FormContainer form .inputbox input{
+  position: relative;
+  width: 125%;
+  padding: 10px ;
+  background: #cbb9b9;
+  padding: 12px;
+  border-radius: 3px;
+  outline: none;
+  appearance: none;
+}
+
+#FormContainer form .inputbox input:focus::placeholder{
+  color: transparent;
+}
+
+#FormContainer form .inputbox input:valid{
+  background-color: transparent;
+}
+
+
+
+#FormContainer form label{
+  color: black;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/*
+#FormContainer form i{
+  width: 90%;
+  height: 1px;
+  background-color: black;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+*/
+#FormContainer form a{
+  margin: 10px 0 ;
+  font-size: .75em;
+  color: blanchedalmond;
+  text-decoration: none;
+}
+
+
+#FormContainer form a:hover{
+  text-decoration: underline;
+}
+
+#FormContainer form button[type="submit"]{
+  border: none;
+  outline: none;
+  padding: 9px 25px;
+  background-color: aliceblue;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100px;
+  margin-top: 10px;
+
+}
+
+#MyProfile img{
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+
+}
+
+/*///////////////////*/
+/*///////////////////*/
+/*///////////////////*/
