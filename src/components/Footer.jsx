@@ -28,15 +28,15 @@ function Footer() {
       <div className="footer-row-2">
         <h2 className="footer-title">ElMazad</h2>
         <div className="footer-info">
-          <i class="fa-solid fa-phone"></i>
+          <i className="fa-solid fa-phone"></i>
           <p className="footer-info-txt"> 19199</p>
         </div>
         <div className="footer-info">
-          <i class="fa-regular fa-envelope"></i>
+          <i className="fa-regular fa-envelope"></i>
           <p className="footer-info-txt"> support@elmazad.com</p>
         </div>
         <div>
-          <i class="fa-regular fa-copyright"></i> All Rights Reserved
+          <i className="fa-regular fa-copyright"></i> All Rights Reserved
         </div>
       </div>
     </footer>

@@ -7,11 +7,9 @@ function Header() {
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
-    // if (navRef.current) {
     navRef.current.classList.toggle("active");
 
     menuRef.current.classList.toggle("fa-times");
-    // }
   };
 
   return (
@@ -34,16 +32,8 @@ function Header() {
           </Link>
         </nav>
 
-        {/* <div className="header-search">
-          <input
-            type="text"
-            id="search-bar"
-            placeholder="What are you looking for?"
-          ></input>
-          <label htmlFor="search-bar" className="fas fa-search"></label>
-        </div> */}
         <div className="header-icons">
-          <div class="nav-item fa-solid fa-earth-americas header-lang"></div>
+          <div className="nav-item fa-solid fa-earth-americas header-lang"></div>
           <Link
             to="/profile"
             className="nav-item fas fa-user-circle header-profile"
