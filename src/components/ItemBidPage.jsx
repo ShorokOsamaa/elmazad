@@ -11,14 +11,14 @@ function ItemBid(props) {
    //    startDate: "1/1/24",
    //    endDate: "7/7/24",
    // };
-   const { Items } = props;
-   console.log("Items--->",Items);
-   const [currentBid, setCurrentBid] = useState(Items.startingPrice);
+   const { Items: Item } = props;
+   console.log("Item--->",Item);
+   const [currentBid, setCurrentBid] = useState(Item.startingPrice);
    const [errorMessage, setErrorMessage] = useState(""); // State for error message
 
    const [isBidOpen, setIsBidOpen] = useState(() => {
       const now = new Date();
-      return now >= new Date(Items.startDate) && now <= new Date(Items.endDate);
+      return now >= new Date(Item.startDate) && now <= new Date(Item.endDate);
    }); // Check if bidding is open based on start date
    // const isBiddingOpen = () => {
    //    const now = new Date();
@@ -32,7 +32,7 @@ function ItemBid(props) {
       const newBid = parseFloat(e.target[0].value);
       console.log("new bid", newBid);
 
-      if (newBid > currentBid && newBid > Items.startingPrice) {
+      if (newBid > currentBid && newBid > Item.startingPrice) {
          setCurrentBid(newBid);
          console.log("current bid: ", currentBid);
       } else {
@@ -64,17 +64,17 @@ function ItemBid(props) {
       // </main>
       <div className="item">
          <div className="item-img-container">
-            <img className="item-img" src={Items.image} alt={Items.description} />
+            <img className="item-img" src={Item.image} alt={Item.description} />
          </div>
          <div className="item-details-container">
             <div className="item-details">
-               <h3>{Items.description}</h3>
-               <p>Starting Price: {Items.startingPrice}LE</p>
-               <p>Reserved Price: {Items.reservedPrice}LE</p>
-               <p>Start Date: {new Date(Items.startDate).toLocaleDateString()}</p>
-               <p>End Date: {new Date(Items.endDate).toLocaleDateString()}</p>
+               <h3>{Item.description}</h3>
+               <p>Starting Price: {Item.startingPrice}LE</p>
+               <p>Reserved Price: {Item.reservedPrice}LE</p>
+               <p>Start Date: {new Date(Item.startDate).toLocaleDateString()}</p>
+               <p>End Date: {new Date(Item.endDate).toLocaleDateString()}</p>
                <div>
-                  <p>{Items.details}</p>
+                  <p>{Item.details}</p>
                </div>
 
                {isBidOpen ? (
@@ -83,10 +83,10 @@ function ItemBid(props) {
                      <form onSubmit={handleBidChange}>
                         <input type="number" />
                         <span className="error-message">{errorMessage}</span>
-                        <button disabled={currentBid >= Items.reservedPrice}>Place Bid</button>
+                        <button disabled={currentBid >= Item.reservedPrice}>Place Bid</button>
                      </form>
                      <button id="buy-now-btn" onClick={buyNow}>
-                        Buy now at {Items.reservedPrice}LE
+                        Buy now at {Item.reservedPrice}LE
                      </button>
                   </div>
                ) : (

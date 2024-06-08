@@ -54,7 +54,7 @@ function AllItems(props) {
                {/* Trigger on click */}
                <div className="item-details">
                   <h3>{product.description}</h3>
-                  <p>Starting Price: ${product.startingPrice}</p>
+                  <p>Starting Price: {product.startingPrice}LE</p>
                   {/* ... other details (these are visible without clicking) */}
                </div>
             </div>
@@ -63,7 +63,8 @@ function AllItems(props) {
             <ItemBid
                Items={products.find((p) => {
                   if (p.id === selectedProductId) {
-                     return products[p.id];
+                     console.log("product----->", p);
+                     return p;
                   }
                })}
             />
