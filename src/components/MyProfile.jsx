@@ -3,19 +3,19 @@ import profileImage from '../assets/OIP.jpg'; // Adjust the path according to yo
 
 const MyProfile = () => {
   return (
-    <>
+    <div>
+      <h1>My Profile</h1>
       <div id="MyProfile">
-        <h1>My Profile</h1>
         <div className='HeaderPart'>
           <img src={profileImage} alt='ProfileImg' />
-          <span>User Name</span>
-          <span>City ,Country</span>
+          <p>User Name</p>
+          <p>City ,Country</p>
         </div>
         <div>
           
         </div>
       </div> 
-    </>
+    </div>
   );
 }
 
