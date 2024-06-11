@@ -13,19 +13,10 @@ function App() {
     <div className="wrapper">
       <Header />
       <MyProfile />
+      <Footer />
 
       
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          {/* <Route path="/item" element={<HomePage />} /> */}
-          {/* <Route path="/account" element={<HomePage />} /> */}
-          {/* <Route path="/signup" element={<HomePage />} /> */}
-          {/* <Route path="/login" element={<Login />} /> */}
-        </Routes>
-      </div>
-      <Footer />
+      
     </div>
     
   );
