@@ -53,7 +53,11 @@ function Card(props) {
   return (
     <div className="card">
       <div className="card-image-container">
-        <img src={props.item.imagesPaths[0]} alt="IMG" className="card-image" />
+        <img
+          src={props.item.imagePaths.split(" ")[0]}
+          alt="IMG"
+          className="card-image"
+        />
       </div>
 
       <div className="card-stats">
