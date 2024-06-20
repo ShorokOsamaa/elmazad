@@ -436,3 +436,387 @@ h5 {
     text-align: center;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#FormContainer {
+  position: relative;
+  width: 480px;
+  height: 420px;
+  border-radius: 8px;
+  justify-content: center; 
+  align-items: center; 
+  color: #E3FEF7;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#FormContainer form {
+  position: relative;
+  padding: 50px 40px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: #135D66;
+  align-items: center; 
+}
+
+#LoginFormContainer form h2 {
+  color: aliceblue;
+  font-weight: 600;
+  text-align: center;
+}
+
+#FormContainer form .inputbox {
+  position: relative;
+  width: 300px;
+  margin-top: 35px;
+  text-align: left;
+}
+
+#FormContainer form .inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background: #E3FEF7;
+  padding: 12px;
+  border-radius: 3px;
+  outline: none;
+  appearance: none;
+}
+
+#FormContainer form .inputbox input:focus::placeholder {
+  color: transparent;
+}
+
+#FormContainer form .inputbox input:valid {
+  background-color: #E3FEF7;
+}
+
+#FormContainer form label {
+  color: black;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+#FormContainer form a {
+  margin: 10px 0;
+  font-size: .75em;
+  color: #77B0AA;
+  text-decoration: none;
+}
+
+#FormContainer form a:hover {
+  text-decoration: underline;
+}
+
+#FormContainer form button[type="submit"] {
+  border: none;
+  outline: none;
+  padding: 9px 25px;
+  background-color: #E3FEF7;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100px;
+  margin-top: 10px;
+}
+
+#MyProfile {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 95%;
+  font-family: Arial, sans-serif;
+}
+
+#MyProfile .bg {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#MyProfile .HeaderPart {
+  padding-top: 1%;
+}
+
+#MyProfile img {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+#MyProfile p {
+  font-weight: bold;
+  font-size: large;
+}
+
+#MyProfile .name {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#MyProfile .bg .line {
+  height: 2px;
+  background-color: #003c43;
+  border-radius: 4px;
+  margin: 20px auto;
+  width: 70%; 
+}
+
+#MyProfile .bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#MyProfile .content {
+  display: flex;
+}
+
+#MyProfile .leftSide {
+  width: 33%; 
+  padding-right: 5px;
+}
+
+#MyProfile .myInfo {
+  text-align: left;
+  margin-left: 8%;
+  margin-bottom: 3px;
+  font-size: 1.9em;
+}
+
+#MyProfile .leftPart {
+  margin-left: 1%;
+  width: 95%;
+  padding: 17px 0px;
+  display: flex;
+}
+
+#MyProfile .leftContainer {
+  padding-bottom: 25px;
+}
+
+#MyProfile .leftPart .col1 {
+  flex: 1;
+  padding-top: 7px;
+  
+}
+
+#MyProfile .leftPart .col2 {
+  flex: 2;
+}
+
+#MyProfile .leftPart .tdData {
+  padding: 6px ;
+  border: 1px solid #135D66;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#MyProfile .buttonPart {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#MyProfile .editButton {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 3px;
+  font-weight: 700;
+  width: 150px;
+}
+
+#MyProfile .rightSide {
+  width: 67%; 
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+#MyProfile .rightSide h2 {
+  margin-bottom: 25px;
+}
+
+#MyProfile .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /*  the gap between the cards */
+  margin-top: 20px;
+}
+
+#MyProfile .card {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+/* Ensure the grid layout remains consistent regardless of screen size */
+
+/* Media query for tablets and small desktops */
+@media (max-width: 1200px) {
+  #MyProfile .leftSide {
+    width: 50%; 
+  }
+
+  #MyProfile .rightSide {
+    width: 50%; 
+  }
+
+  #MyProfile .cards {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 800px) {
+  #MyProfile .leftSide {
+    width: 100%; 
+    padding-right: 0;
+  }
+
+  #MyProfile .rightSide {
+    width: 100%; 
+    border-left: none; 
+    padding-left: 0;
+  }
+
+  #MyProfile .cards {
+    grid-template-columns: 1fr; 
+  }
+  
+  
+  #MyProfile .bg {
+    padding: 10px;
+  }
+
+  #MyProfile img {
+    height: 150px;
+    width: 150px;
+  }
+
+  #MyProfile .name {
+    font-size: large;
+  }
+
+  #MyProfile p {
+    font-size: medium;
+  }
+
+  #MyProfile .bg .line {
+    width: 80%;
+  }
+
+  #MyProfile .leftPart {
+    padding: 10px 0;
+  }
+
+  #MyProfile .rightSide h2 {
+    margin-bottom: 15px;
+  }
+
+  #MyProfile .myInfo {
+    margin-left: 5%;
+    font-size: 1.5em;
+  }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 500px) {
+  #MyProfile .leftSide, #MyProfile .rightSide {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #MyProfile .cards {
+    grid-template-columns: 1fr; 
+  }
+  
+  #MyProfile .bg {
+    padding: 5px;
+  }
+
+  #MyProfile img {
+    height: 120px;
+    width: 120px;
+  }
+
+  #MyProfile .name {
+    font-size: medium;
+  }
+
+  #MyProfile p {
+    font-size: small;
+  }
+
+  #MyProfile .bg .line {
+    width: 90%;
+  }
+
+  #MyProfile .leftPart {
+    padding: 5px 0;
+  }
+
+  #MyProfile .rightSide h2 {
+    margin-bottom: 10px;
+  }
+
+  #MyProfile .myInfo {
+    margin-left: 3%;
+    font-size: 1.2em;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
