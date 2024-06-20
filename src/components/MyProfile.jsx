@@ -1,15 +1,40 @@
-import React, { useState } from 'react';
-import profileImage from '../assets/OIP.jpg'; // Adjust the path according to your project structure
-import Card from './Card'; // Import the Card component
-
+import React, { useEffect, useState } from "react";
+import profileImage from "../assets/OIP.jpg";
+import Card from "./Card";
+import axios from "axios";
 
 const MyProfile = () => {
   const [profileData, setProfileData] = useState({
-    name: 'Menreet Gaber',
-    email: 'menreetgaber@gmail.com',
+    name: "Menreet Gaber",
+    email: "menreetgaber@gmail.com",
     age: 23,
-    address: 'Alexandria, Egypt',
+    address: "Alexandria, Egypt",
   });
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log(token);
+
+    if (token) {
+      axios
+        .get("http://localhost:5000/api/v1/user/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          // setProfileData(response.data.user);
+          console.log("Response user data: ", response.data.user);
+        })
+        .catch((error) => {
+          console.error("Error fetching profile:", error);
+        });
+    }
+  }, []);
+
+  if (!profileData) {
+    return <p>Loading...</p>;
+  }
 
   // State to manage edit mode
   const [isEditing, setIsEditing] = useState(false);
@@ -37,7 +62,7 @@ const MyProfile = () => {
       reservedPrice: 200,
       buyNow: 250,
       endDate: "2024-12-31T23:59:59",
-      imagesPaths: ["https://via.placeholder.com/150"],
+      imagePaths: "https://via.placeholder.com/150",
     },
     {
       id: 3,
@@ -46,7 +71,7 @@ const MyProfile = () => {
       reservedPrice: 200,
       buyNow: 250,
       endDate: "2024-12-31T23:59:59",
-      imagesPaths: ["https://via.placeholder.com/150"],
+      imagePaths: "https://via.placeholder.com/150",
     },
     {
       id: 2,
@@ -55,7 +80,7 @@ const MyProfile = () => {
       reservedPrice: 300,
       buyNow: 350,
       endDate: "2024-12-30T23:59:59",
-      imagesPaths: ["https://via.placeholder.com/150"],
+      imagePaths: "https://via.placeholder.com/150",
     },
     {
       id: 4,
@@ -64,28 +89,30 @@ const MyProfile = () => {
       reservedPrice: 300,
       buyNow: 350,
       endDate: "2024-12-30T23:59:59",
-      imagesPaths: ["https://via.placeholder.com/150"],
+      imagePaths: "https://via.placeholder.com/150",
     },
   ];
 
-
   return (
     <div id="MyProfile">
-      <div className='bg'>
-        <div className='HeaderPart'>
-          <img src={profileImage} alt='ProfileImg' />
-          <p className='name'>{profileData.name}</p>
-          <p>{profileData.address.split(',')[0]}, {profileData.address.split(',')[1]}</p>
+      <div className="bg">
+        <div className="HeaderPart">
+          <img src={profileImage} alt="ProfileImg" />
+          <p className="name">{profileData.name}</p>
+          <p>
+            {profileData.address.split(",")[0]},{" "}
+            {profileData.address.split(",")[1]}
+          </p>
         </div>
-        <div className='line'></div>
+        <div className="line"></div>
       </div>
-      
-      <div className='content'>
-        <div className='leftSide'>
-          <p className='myInfo'>My info:</p>
-          <div className='leftContainer'>
-            <div className='leftPart'>
-              <div className='col1'>
+
+      <div className="content">
+        <div className="leftSide">
+          <p className="myInfo">My info:</p>
+          <div className="leftContainer">
+            <div className="leftPart">
+              <div className="col1">
                 <p>Name</p>
                 <br />
                 <p>Email</p>
@@ -94,69 +121,67 @@ const MyProfile = () => {
                 <br />
                 <p>Address</p>
               </div>
-              <div className='col2'>
+              <div className="col2">
                 {isEditing ? (
                   <>
                     <input
-                      type='text'
-                      name='name'
+                      type="text"
+                      name="name"
                       value={profileData.name}
                       onChange={handleInputChange}
-                      className='tdData'
+                      className="tdData"
                     />
                     <br />
                     <input
-                      type='email'
-                      name='email'
+                      type="email"
+                      name="email"
                       value={profileData.email}
                       onChange={handleInputChange}
-                      className='tdData'
+                      className="tdData"
                     />
                     <br />
                     <input
-                      type='number'
-                      name='age'
+                      type="number"
+                      name="age"
                       value={profileData.age}
                       onChange={handleInputChange}
-                      className='tdData'
+                      className="tdData"
                     />
                     <br />
                     <input
-                      type='text'
-                      name='address'
+                      type="text"
+                      name="address"
                       value={profileData.address}
                       onChange={handleInputChange}
-                      className='tdData'
+                      className="tdData"
                     />
                   </>
                 ) : (
                   <>
-                    <p className='tdData'>{profileData.name}</p>
-                    <p className='tdData'>{profileData.email}</p>
-                    <p className='tdData'>{profileData.age}</p>
-                    <p className='tdData'>{profileData.address}</p>
+                    <p className="tdData">{profileData.name}</p>
+                    <p className="tdData">{profileData.email}</p>
+                    <p className="tdData">{profileData.age}</p>
+                    <p className="tdData">{profileData.address}</p>
                   </>
                 )}
               </div>
             </div>
-            <div className='buttonPart'>
-              <button onClick={toggleEditMode} className='editButton'>
-                {isEditing ? 'Save' : 'Edit'}
+            <div className="buttonPart">
+              <button onClick={toggleEditMode} className="editButton">
+                {isEditing ? "Save" : "Edit"}
               </button>
             </div>
           </div>
         </div>
 
-        <div className='rightSide'>
+        <div className="rightSide">
           <h2>My Bids</h2>
-          <div className='cards'>
+          <div className="cards">
             {bidHistory.map((item) => (
-            <Card key={item.id} item={item} />
+              <Card key={item.id} item={item} />
             ))}
           </div>
         </div>
-
-
       </div>
     </div>
   );

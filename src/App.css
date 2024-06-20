@@ -59,9 +59,10 @@ header {
 }
 
 .header-title {
-  /* color: #003c43; */
   color: #003c43;
   font-size: x-large;
+  font-weight: 700;
+  text-decoration: none;
 }
 nav {
   display: flex;
@@ -251,8 +252,8 @@ h5 {
   font-weight: 500;
 }
 .home-category-item:hover {
-  border: #135d66 solid 0.5rem;
-  color: #135d66;
+  /* border: #135d66 solid 0.5rem; */
+  /* color: #135d66; */
   background-color: #ccc;
 }
 .home-category-item i {
@@ -270,6 +271,10 @@ h5 {
   overflow-x: auto;
 
   margin: 3.5rem 0.5rem;
+}
+
+.category-page {
+  margin: 2% 5%;
 }
 
 .card {
@@ -437,56 +442,19 @@ h5 {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #FormContainer {
   position: relative;
   width: 480px;
   height: 420px;
   border-radius: 8px;
-  justify-content: center; 
-  align-items: center; 
-  color: #E3FEF7;
+  justify-content: center;
+  align-items: center;
+  color: #e3fef7;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 #FormContainer form {
@@ -497,8 +465,8 @@ code {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  background-color: #135D66;
-  align-items: center; 
+  background-color: #135d66;
+  align-items: center;
 }
 
 #LoginFormContainer form h2 {
@@ -518,7 +486,7 @@ code {
   position: relative;
   width: 100%;
   padding: 10px;
-  background: #E3FEF7;
+  background: #e3fef7;
   padding: 12px;
   border-radius: 3px;
   outline: none;
@@ -530,7 +498,7 @@ code {
 }
 
 #FormContainer form .inputbox input:valid {
-  background-color: #E3FEF7;
+  background-color: #e3fef7;
 }
 
 #FormContainer form label {
@@ -541,8 +509,8 @@ code {
 
 #FormContainer form a {
   margin: 10px 0;
-  font-size: .75em;
-  color: #77B0AA;
+  font-size: 0.75em;
+  color: #77b0aa;
   text-decoration: none;
 }
 
@@ -554,7 +522,7 @@ code {
   border: none;
   outline: none;
   padding: 9px 25px;
-  background-color: #E3FEF7;
+  background-color: #e3fef7;
   border-radius: 3px;
   cursor: pointer;
   font-weight: 600;
@@ -600,7 +568,7 @@ code {
   background-color: #003c43;
   border-radius: 4px;
   margin: 20px auto;
-  width: 70%; 
+  width: 70%;
 }
 
 #MyProfile .bg {
@@ -614,7 +582,7 @@ code {
 }
 
 #MyProfile .leftSide {
-  width: 33%; 
+  width: 33%;
   padding-right: 5px;
 }
 
@@ -639,7 +607,6 @@ code {
 #MyProfile .leftPart .col1 {
   flex: 1;
   padding-top: 7px;
-  
 }
 
 #MyProfile .leftPart .col2 {
@@ -647,8 +614,8 @@ code {
 }
 
 #MyProfile .leftPart .tdData {
-  padding: 6px ;
-  border: 1px solid #135D66;
+  padding: 6px;
+  border: 1px solid #135d66;
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
@@ -669,7 +636,7 @@ code {
 }
 
 #MyProfile .rightSide {
-  width: 67%; 
+  width: 67%;
   border-left: 1px solid #ccc;
   padding-left: 20px;
 }
@@ -697,35 +664,34 @@ code {
 /* Media query for tablets and small desktops */
 @media (max-width: 1200px) {
   #MyProfile .leftSide {
-    width: 50%; 
+    width: 50%;
   }
 
   #MyProfile .rightSide {
-    width: 50%; 
+    width: 50%;
   }
 
   #MyProfile .cards {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 800px) {
   #MyProfile .leftSide {
-    width: 100%; 
+    width: 100%;
     padding-right: 0;
   }
 
   #MyProfile .rightSide {
-    width: 100%; 
-    border-left: none; 
+    width: 100%;
+    border-left: none;
     padding-left: 0;
   }
 
   #MyProfile .cards {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
-  
-  
+
   #MyProfile .bg {
     padding: 10px;
   }
@@ -763,15 +729,16 @@ code {
 
 /* Media query for mobile phones */
 @media (max-width: 500px) {
-  #MyProfile .leftSide, #MyProfile .rightSide {
+  #MyProfile .leftSide,
+  #MyProfile .rightSide {
     width: 100%;
     padding: 10px;
   }
 
   #MyProfile .cards {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
-  
+
   #MyProfile .bg {
     padding: 5px;
   }
@@ -807,7 +774,6 @@ code {
   }
 }
 
-
 @media (max-width: 800px) {
   .cards {
     grid-template-columns: repeat(3, 1fr);
@@ -819,4 +785,3 @@ code {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-

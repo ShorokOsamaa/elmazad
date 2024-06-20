@@ -15,7 +15,9 @@ function Header() {
   return (
     <div>
       <header>
-        <h1 className="header-title">ElMazad</h1>
+        <Link to="/" className="header-title">
+          ElMazad
+        </Link>
 
         <nav ref={navRef}>
           <Link to="/" className="nav-item">
@@ -33,7 +35,7 @@ function Header() {
         </nav>
 
         <div className="header-icons">
-          <div className="nav-item fa-solid fa-earth-americas header-lang"></div>
+          {/* <div className="nav-item fa-solid fa-earth-americas header-lang"></div> */}
           <Link
             to="/profile"
             className="nav-item fas fa-user-circle header-profile"

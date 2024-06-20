@@ -28,21 +28,21 @@ function HomePage() {
       <div className="home-categories">
         <h2 className="home-text">Explore Categories</h2>
         <div className="home-categories-list">
-          <Link to="/electronics" className="home-category-item">
+          <Link to="/category/electronics" className="home-category-item">
             <div>
               <i className="fa-solid fa-laptop"></i>
               <br />
               Electronics
             </div>
           </Link>
-          <Link to="/cars" className="home-category-item">
+          <Link to="/category/cars" className="home-category-item">
             <div>
               <i className="fa-solid fa-car"></i>
               <br />
               Cars
             </div>
           </Link>
-          <Link to="/realestate" className="home-category-item">
+          <Link to="/category/realestate" className="home-category-item">
             <div>
               <i className="fa-solid fa-house-chimney"></i>
               <br />
