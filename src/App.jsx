@@ -36,7 +36,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/all-items" element={<AllItems products={items} />} />
-          <Route path="/item-bid" element={<ItemBidPage Item={items[0]} />} />
+          <Route path="/item/:id" element={<ItemBidPage />} />
           {/* <Route path="/item" element={<HomePage />} /> */}
           {/* <Route path="/account" element={<HomePage />} /> */}
           {/* <Route path="/signup" element={<HomePage />} /> */}

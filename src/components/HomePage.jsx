@@ -21,12 +21,9 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      <div className="banner">
+      {/* <div className="banner">
         <h1 className="banner-text">Uncover Hidden Treasures</h1>
         <button className="banner-button">View All Auctions</button>
-      </div>
-      {/* <div className="home-Search">
-        to do
       </div> */}
       <div className="home-categories">
         <h2 className="home-text">Explore Categories</h2>
