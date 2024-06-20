@@ -7,28 +7,23 @@ function HomePage() {
   const [items, setItems] = useState({ items: [] });
 
   useEffect(() => {
-    fetch("http://localhost:5000/items")
+    fetch("http://localhost:5000/api/v1/item")
       .then((res) => res.json())
       .then((data) => {
-        setItems(data);
+        setItems({ items: data.items });
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
 
-  const cards = items.items.map((item) => (
-    <Card key={item.itemId} item={item} />
-  ));
+  const cards = items.items.map((item) => <Card key={item.id} item={item} />);
 
   return (
     <div className="home-page">
-      <div className="banner">
+      {/* <div className="banner">
         <h1 className="banner-text">Uncover Hidden Treasures</h1>
         <button className="banner-button">View All Auctions</button>
-      </div>
-      {/* <div className="home-Search">
-        to do
       </div> */}
       <div className="home-categories">
         <h2 className="home-text">Explore Categories</h2>

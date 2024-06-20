@@ -1,4 +1,6 @@
+import "../App.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const formatDate = (dateString) => {
   const options = {
@@ -51,9 +53,13 @@ function Card(props) {
   const color = timeLeft.days < 1 ? "red" : "green";
 
   return (
-    <div className="card">
+    <Link to={`/item/${props.item.id}`} className="card">
       <div className="card-image-container">
-        <img src={props.item.imagesPaths[0]} alt="IMG" className="card-image" />
+        <img
+          src={props.item.imagePaths.split(" ")[0]}
+          alt="IMG"
+          className="card-image"
+        />
       </div>
 
       <div className="card-stats">
@@ -64,7 +70,9 @@ function Card(props) {
         <p className="card-stats-info">
           {`Starting Price: ${props.item.startingPrice}`}
           <br />
-          {`Buy Now: ${props.item.buyNow}`}
+          {props.item.buynow
+            ? `Buy Now: ${props.item.buyNow}`
+            : `Reserved Price: ${props.item.reservedPrice}`}
           <br />
           {`Time Left:`}
           <br />
@@ -79,7 +87,7 @@ function Card(props) {
         <button className="card-bid card-button">Bid</button>
         <button className="card-buy card-button">Buy Now</button>
       </div>
-    </div>
+    </Link>
   );
 }
 
