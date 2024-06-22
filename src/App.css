@@ -442,10 +442,11 @@ h5 {
   }
 }
 
+
 #FormContainer {
+  margin: 50px auto 5px auto;
   position: relative;
   width: 480px;
-  height: 420px;
   border-radius: 8px;
   justify-content: center;
   align-items: center;
