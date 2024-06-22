@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage.jsx";
 import { Routes, Route } from "react-router-dom";
 import AllItems from "./components/AllItemsPage";
+import AddItem from "./components/AddItem";
 
 function App() {
    const items = [
@@ -35,6 +36,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/all-items" element={<AllItems products={items}/>} />
+          <Route path="/add-item" element={<AddItem />} />
+
           {/* <Route path="/item" element={<HomePage />} /> */}
           {/* <Route path="/account" element={<HomePage />} /> */}
           {/* <Route path="/signup" element={<HomePage />} /> */}
