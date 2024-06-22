@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import profileImage from "../assets/OIP.jpg";
-import Card from "./Card";
+import PurchasedCard from "./PurchsedCard";
 import axios from "axios";
 
 const MyProfile = () => {
@@ -55,40 +55,35 @@ const MyProfile = () => {
 
   // Sample bid history data
   const bidHistory = [
-    {
-      id: 1,
+    {id: 1,
       name: "Vintage Watch",
       startingPrice: 100,
-      reservedPrice: 200,
-      buyNow: 250,
-      endDate: "2024-12-31T23:59:59",
+      PurchasedPrice: 200,
+      PurchasedDate: "2024-12-31",
       imagePaths: "https://via.placeholder.com/150",
     },
     {
       id: 3,
       name: "Vintage Watch",
       startingPrice: 100,
-      reservedPrice: 200,
-      buyNow: 250,
-      endDate: "2024-12-31T23:59:59",
+      PurchasedPrice: 200,
+      PurchasedDate: "2024-12-31",
       imagePaths: "https://via.placeholder.com/150",
     },
     {
       id: 2,
       name: "Antique Vase",
       startingPrice: 150,
-      reservedPrice: 300,
-      buyNow: 350,
-      endDate: "2024-12-30T23:59:59",
+      PurchasedPrice: 200,
+      PurchasedDate: "2024-12-31",
       imagePaths: "https://via.placeholder.com/150",
     },
     {
       id: 4,
       name: "Antique Vase",
       startingPrice: 150,
-      reservedPrice: 300,
-      buyNow: 350,
-      endDate: "2024-12-30T23:59:59",
+      PurchasedPrice: 200,
+      PurchasedDate: "2024-12-31",
       imagePaths: "https://via.placeholder.com/150",
     },
   ];
@@ -178,7 +173,7 @@ const MyProfile = () => {
           <h2>My Bids</h2>
           <div className="cards">
             {bidHistory.map((item) => (
-              <Card key={item.id} item={item} />
+              <PurchasedCard key={item.id} item={item} />
             ))}
           </div>
         </div>

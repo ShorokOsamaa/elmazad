@@ -11,6 +11,8 @@ import MyProfile from "./components/MyProfile";
 import AllItems from "./components/AllItemsPage";
 import ItemBidPage from "./components/ItemBidPage.jsx";
 import CategoryPage from "./components/CategoryPage.jsx";
+import PurchasedCard from "./components/PurchsedCard.jsx";
+
 
 function App() {
   return (
@@ -29,7 +31,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
+
       </div>
+
       <Footer />
     </div>
   );

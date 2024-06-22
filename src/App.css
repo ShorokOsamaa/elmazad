@@ -301,6 +301,7 @@ h5 {
   /* Remove Link Decoration & Color */
   text-decoration: none;
   color: inherit;
+  
 }
 
 .card:hover {
@@ -605,36 +606,55 @@ code {
   padding-bottom: 25px;
 }
 
+
 #MyProfile .leftPart .col1 {
   flex: 1;
   padding-top: 7px;
 }
+
 
 #MyProfile .leftPart .col2 {
   flex: 2;
 }
 
 #MyProfile .leftPart .tdData {
+  font-size: 1.2em;
   padding: 6px;
   border: 1px solid #135d66;
+  background-color: transparent;
+  font-weight: 400 ;
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
+  
 }
+
 
 #MyProfile .buttonPart {
   justify-content: center;
   margin-top: 20px;
+  background-color: transparent;
 }
 
 #MyProfile .editButton {
   padding: 10px 20px;
   cursor: pointer;
-  background-color: transparent;
-  border-radius: 3px;
-  font-weight: 700;
   width: 150px;
+  color: white;
+  background-color: #003c43cc;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
 }
+
+#MyProfile .editButton:hover {
+  background-color: #003c43;
+  /* color: #003c43; */
+  color: white;
+  transform: scale(1.01);
+}
+
+
 
 #MyProfile .rightSide {
   width: 67%;
@@ -644,20 +664,26 @@ code {
 
 #MyProfile .rightSide h2 {
   margin-bottom: 25px;
+  font-size: xx-large;
+  
 }
 
 #MyProfile .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px; /*  the gap between the cards */
-  margin-top: 20px;
 }
 
-#MyProfile .card {
+#Pcard {
   box-sizing: border-box;
   padding: 10px;
-  background-color: white;
-  border: 1px solid #ccc;
+  line-height: 35px;
+  font-size: smaller;
+}
+
+#Pcard .card-title{
+  font-size: x-large;
+  line-height: 65px;
 }
 
 /* Ensure the grid layout remains consistent regardless of screen size */
