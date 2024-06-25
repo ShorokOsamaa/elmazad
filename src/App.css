@@ -59,9 +59,10 @@ header {
 }
 
 .header-title {
-  /* color: #003c43; */
   color: #003c43;
   font-size: x-large;
+  font-weight: 700;
+  text-decoration: none;
 }
 nav {
   display: flex;
@@ -72,7 +73,7 @@ nav {
 .nav-item {
   text-decoration: none;
   font-size: medium;
-  font-weight: 600;
+  font-weight: 500;
   color: #003c43;
 }
 .nav-item:hover {
@@ -251,8 +252,8 @@ h5 {
   font-weight: 500;
 }
 .home-category-item:hover {
-  border: #135d66 solid 0.5rem;
-  color: #135d66;
+  /* border: #135d66 solid 0.5rem; */
+  /* color: #135d66; */
   background-color: #ccc;
 }
 .home-category-item i {
@@ -270,6 +271,10 @@ h5 {
   overflow-x: auto;
 
   margin: 3.5rem 0.5rem;
+}
+
+.category-page {
+  margin: 2% 5%;
 }
 
 .card {
@@ -292,7 +297,12 @@ h5 {
 
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  /* Remove Link Decoration & Color */
+  text-decoration: none;
+  color: inherit;
 }
+
 .card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
@@ -431,131 +441,349 @@ h5 {
     text-align: center;
   }
 }
-.item {
-  display: grid;
-  justify-items: center;
+
+#FormContainer {
+  position: relative;
+  width: 480px;
+  height: 420px;
+  border-radius: 8px;
   justify-content: center;
-  /* justify-content:end; */
-  grid-template-columns: auto auto auto;
-  padding: 40px;
-  gap: 50px;
+  align-items: center;
+  color: #e3fef7;
 }
-body {
-  margin: 0;
-  padding: 0;
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#FormContainer form {
+  position: relative;
+  padding: 50px 40px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: #135d66;
+  align-items: center;
+}
+
+#LoginFormContainer form h2 {
+  color: aliceblue;
+  font-weight: 600;
+  text-align: center;
+}
+
+#FormContainer form .inputbox {
+  position: relative;
+  width: 300px;
+  margin-top: 35px;
+  text-align: left;
+}
+
+#FormContainer form .inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background: #e3fef7;
+  padding: 12px;
+  border-radius: 3px;
+  outline: none;
+  appearance: none;
+}
+
+#FormContainer form .inputbox input:focus::placeholder {
+  color: transparent;
+}
+
+#FormContainer form .inputbox input:valid {
+  background-color: #e3fef7;
+}
+
+#FormContainer form label {
+  color: black;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+#FormContainer form a {
+  margin: 10px 0;
+  font-size: 0.75em;
+  color: #77b0aa;
+  text-decoration: none;
+}
+
+#FormContainer form a:hover {
+  text-decoration: underline;
+}
+
+#FormContainer form button[type="submit"] {
+  border: none;
+  outline: none;
+  padding: 9px 25px;
+  background-color: #e3fef7;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100px;
+  margin-top: 10px;
+}
+
+#MyProfile {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 95%;
   font-family: Arial, sans-serif;
 }
 
-.container {
-  width: 100%; /* Stretch the container to 100% viewport width */
-  display: flex; /* Arrange elements horizontally */
-  flex-wrap: wrap; /* Allow elements to wrap to multiple lines if needed */
-}
-.item-img-container {
-  display: grid;
-  /* width: 100%; */
-  /* grid-row-start: 1;
-   grid-row-end: 7; */
-}
-
-.item-img {
-  display: grid;
-  width: 100%; /* % of card width */
-  /* grid-column-start: 1;
-   grid-column-end: 7;
-   grid-row-start: 1;
-   grid-row-end: 7; */
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.item-details-container {
-  display: grid;
-  grid-column-start: 2;
-  grid-column-end: 12;
-}
-.item-details {
-  background-color: #fff;
-  /* margin: 10px; */
-  padding: 15px;
-  /* border: 1px solid #ddd;  */
-  border-radius: 5px;
-  /* width: calc(25% - 20px); Calculate width based on a 4-column grid */
-  box-sizing: border-box;
-  text-align: center; /* Center the content within the card */
-}
-
-.bid-section {
-  border-top: 1px solid #918e8e;
-  /* border-radius: 15px; */
-  /* padding: 20px; */
-}
-
-.product-card h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.product-card p {
-  margin-bottom: 10px;
-}
-/* .item-img {
-  height: 60%;
-} */
-
-div p {
-  width: 100%;
-}
-.item-details button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.item-details button:hover {
-  background-color: #0067cc;
-}
-#buy-now-btn {
-  background-color: rgb(198, 198, 81);
-  margin: 10px;
-  cursor: pointer;
-}
-#buy-now-btn:hover {
-  background-color: rgb(219, 219, 92);
-}
-input {
-  /* display: block; */
-  /* width: 100%; */
-  padding: 15px 20px;
-  font-size: 16px;
-  /* line-height: 1.5; */
-  /* color: #495057; */
-  background-color: #f5f5f5;
-  /* border: none; */
+#MyProfile .bg {
+  padding: 20px;
   border-radius: 10px;
-  border-color: rgb(69, 65, 65, 0.5);
-  border-style: solid;
-  /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); */
-  transition: all 0.2s ease-in-out;
 }
 
-input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+#MyProfile .HeaderPart {
+  padding-top: 1%;
 }
 
-input:placeholder {
-  color: #999;
+#MyProfile img {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
 }
-.error-message {
-  color: red;
-  font-size: 0.8rem;
-  margin-top: 5px;
-  display: block;
+
+#MyProfile p {
+  font-weight: bold;
+  font-size: large;
+}
+
+#MyProfile .name {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#MyProfile .bg .line {
+  height: 2px;
+  background-color: #003c43;
+  border-radius: 4px;
+  margin: 20px auto;
+  width: 70%;
+}
+
+#MyProfile .bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#MyProfile .content {
+  display: flex;
+}
+
+#MyProfile .leftSide {
+  width: 33%;
+  padding-right: 5px;
+}
+
+#MyProfile .myInfo {
+  text-align: left;
+  margin-left: 8%;
+  margin-bottom: 3px;
+  font-size: 1.9em;
+}
+
+#MyProfile .leftPart {
+  margin-left: 1%;
+  width: 95%;
+  padding: 17px 0px;
+  display: flex;
+}
+
+#MyProfile .leftContainer {
+  padding-bottom: 25px;
+}
+
+#MyProfile .leftPart .col1 {
+  flex: 1;
+  padding-top: 7px;
+}
+
+#MyProfile .leftPart .col2 {
+  flex: 2;
+}
+
+#MyProfile .leftPart .tdData {
+  padding: 6px;
+  border: 1px solid #135d66;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#MyProfile .buttonPart {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#MyProfile .editButton {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 3px;
+  font-weight: 700;
+  width: 150px;
+}
+
+#MyProfile .rightSide {
+  width: 67%;
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+#MyProfile .rightSide h2 {
+  margin-bottom: 25px;
+}
+
+#MyProfile .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /*  the gap between the cards */
+  margin-top: 20px;
+}
+
+#MyProfile .card {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+/* Ensure the grid layout remains consistent regardless of screen size */
+
+/* Media query for tablets and small desktops */
+@media (max-width: 1200px) {
+  #MyProfile .leftSide {
+    width: 50%;
+  }
+
+  #MyProfile .rightSide {
+    width: 50%;
+  }
+
+  #MyProfile .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  #MyProfile .leftSide {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #MyProfile .rightSide {
+    width: 100%;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  #MyProfile .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #MyProfile .bg {
+    padding: 10px;
+  }
+
+  #MyProfile img {
+    height: 150px;
+    width: 150px;
+  }
+
+  #MyProfile .name {
+    font-size: large;
+  }
+
+  #MyProfile p {
+    font-size: medium;
+  }
+
+  #MyProfile .bg .line {
+    width: 80%;
+  }
+
+  #MyProfile .leftPart {
+    padding: 10px 0;
+  }
+
+  #MyProfile .rightSide h2 {
+    margin-bottom: 15px;
+  }
+
+  #MyProfile .myInfo {
+    margin-left: 5%;
+    font-size: 1.5em;
+  }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 500px) {
+  #MyProfile .leftSide,
+  #MyProfile .rightSide {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #MyProfile .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #MyProfile .bg {
+    padding: 5px;
+  }
+
+  #MyProfile img {
+    height: 120px;
+    width: 120px;
+  }
+
+  #MyProfile .name {
+    font-size: medium;
+  }
+
+  #MyProfile p {
+    font-size: small;
+  }
+
+  #MyProfile .bg .line {
+    width: 90%;
+  }
+
+  #MyProfile .leftPart {
+    padding: 5px 0;
+  }
+
+  #MyProfile .rightSide h2 {
+    margin-bottom: 10px;
+  }
+
+  #MyProfile .myInfo {
+    margin-left: 3%;
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .form-container {
   text-align: center;

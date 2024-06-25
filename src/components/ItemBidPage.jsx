@@ -1,7 +1,34 @@
 import "../App.css";
-import React, { useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+import React, { useRef, useEffect, useState } from "react";
 
 function ItemBid(props) {
+  const { id } = useParams();
+  const [Item, setItem] = useState(null);
+  const [currentBid, setCurrentBid] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const [isBidOpen, setIsBidOpen] = useState(false);
+
+  console.log("before use effect");
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/v1/item/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("inside use effect");
+        console.log(data);
+        setItem(data.item);
+        setCurrentBid(data.item.startingPrice);
+        const now = new Date();
+        setIsBidOpen(
+          now >= new Date(data.item.startDate) &&
+            now <= new Date(data.item.endDate)
+        );
+      })
+      .catch((error) => {
+        console.error("Error fetching item details:", error);
+      });
+  }, [id]);
+
   // const Items = {
   //    image: "/item.jpg",
   //    description: "game controller",
@@ -11,19 +38,10 @@ function ItemBid(props) {
   //    startDate: "1/1/24",
   //    endDate: "7/7/24",
   // };
-  const { Item } = props;
-  console.log("Item--->", Item);
-  const [currentBid, setCurrentBid] = useState(Item.startingPrice);
-  const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  //   const { Item } = props;
 
-  const [isBidOpen, setIsBidOpen] = useState(() => {
-    const now = new Date();
-    return now >= new Date(Item.startDate) && now <= new Date(Item.endDate);
-  }); // Check if bidding is open based on start date
-  // const isBiddingOpen = () => {
-  //    const now = new Date();
-  //    return now >= new Date(Items.startDate) && now <= new Date(Items.endDate);
-  // };
+  console.log("Item--->", Item);
+
   const handleBidChange = (e) => {
     e.preventDefault();
     setErrorMessage("");
@@ -52,6 +70,10 @@ function ItemBid(props) {
     }
   };
 
+  if (!Item) {
+    return <div>Loading...</div>;
+  }
+
   return (
     // <main class="container">
     // <div class="product-card">
@@ -64,10 +86,15 @@ function ItemBid(props) {
     // </main>
     <div className="item">
       <div className="item-img-container">
-        <img className="item-img" src={Item.image} alt={Item.description} />
+        <img
+          className="item-img"
+          src={Item.imagePaths.split(" ")[0]}
+          alt={Item.description}
+        />
       </div>
       <div className="item-details-container">
         <div className="item-details">
+          <h3>{Item.name}</h3>
           <h3>{Item.description}</h3>
           <p>Starting Price: {Item.startingPrice}LE</p>
           <p>Reserved Price: {Item.reservedPrice}LE</p>

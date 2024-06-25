@@ -1,50 +1,39 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import PrivateRoutes from "./utils/PrivateRoutes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
-import AboutPage from "./components/AboutPage.jsx";
-import { Routes, Route } from "react-router-dom";
+import AboutPage from "./components/AboutPage";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import MyProfile from "./components/MyProfile";
 import AllItems from "./components/AllItemsPage";
 import AddItem from "./components/AddItem";
 import ItemBidPage from "./components/ItemBidPage.jsx";
+import CategoryPage from "./components/CategoryPage.jsx";
 
 function App() {
-  const items = [
-    {
-      id: 1,
-      image: "/item.jpg",
-      description: "Product 1",
-      startingPrice: 100,
-      reservedPrice: 500,
-      startDate: "1/1/24",
-      endDate: "7/7/25",
-    },
-    {
-      id: 2,
-      image: "/item.jpg",
-      description: "Product 2",
-      startingPrice: 100,
-      reservedPrice: 500,
-      startDate: "1/1/24",
-      endDate: "7/7/25",
-    },
-  ];
   return (
     <div className="wrapper">
       <Header />
       <div className="content">
         <Routes>
+          {/* <Route element={<PrivateRoutes />}> */}
+          <Route path="/profile" element={<MyProfile />} />
+          {/* </Route> */}
+
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/all-items" element={<AllItems products={items}/>} />
-          <Route path="/add-item" element={<AddItem />} />
 
-          <Route path="/all-items" element={<AllItems products={items} />} />
-          <Route path="/item-bid" element={<ItemBidPage Item={items[0]} />} />
-          {/* <Route path="/item" element={<HomePage />} /> */}
-          {/* <Route path="/account" element={<HomePage />} /> */}
-          {/* <Route path="/signup" element={<HomePage />} /> */}
-          {/* <Route path="/login" element={<HomePage />} /> */}
+          <Route path="/item/:id" element={<ItemBidPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* <Route path="/add-item" element={<AddItem />} />
+          <Route path="/item-bid" element={<ItemBidPage Item={items[0]} />} />  */}
+
         </Routes>
       </div>
       <Footer />
