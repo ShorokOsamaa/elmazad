@@ -785,3 +785,9 @@ code {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.form-container {
+  text-align: center;
+  align-items: center;
+  text-transform: capitalize;
+  text-align: -webkit-center;
+}

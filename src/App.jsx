@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import MyProfile from "./components/MyProfile";
 import AllItems from "./components/AllItemsPage";
+import AddItem from "./components/AddItem";
 import ItemBidPage from "./components/ItemBidPage.jsx";
 import CategoryPage from "./components/CategoryPage.jsx";
 
@@ -24,10 +25,15 @@ function App() {
 
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+
           <Route path="/item/:id" element={<ItemBidPage />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
+          {/* <Route path="/add-item" element={<AddItem />} />
+          <Route path="/item-bid" element={<ItemBidPage Item={items[0]} />} />  */}
+
         </Routes>
       </div>
       <Footer />
