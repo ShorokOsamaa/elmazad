@@ -31,9 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* <Route path="/add-item" element={<AddItem />} />
-          <Route path="/item-bid" element={<ItemBidPage Item={items[0]} />} />  */}
-
+          {/* <Route path="/add-item" element={<AddItem />} />*/}
         </Routes>
       </div>
       <Footer />

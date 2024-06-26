@@ -1,23 +1,23 @@
 import "../App.css";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import React, { useRef, useEffect, useState } from "react";
+import BidCard from "./BidCard";
 
-function ItemBid(props) {
+function ItemBid() {
   const { id } = useParams();
-  const [Item, setItem] = useState(null);
-  const [currentBid, setCurrentBid] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(""); // State for error message
-  const [isBidOpen, setIsBidOpen] = useState(false);
+  const [item, setItem] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isBidOpen, setIsBidOpen] = useState(true);
+  const [amount, setAmount] = useState("");
+  const [bids, setBids] = useState([]);
 
-  console.log("before use effect");
-  useEffect(() => {
+  const fetchItemData = async () => {
     fetch(`http://localhost:5000/api/v1/item/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("inside use effect");
-        console.log(data);
         setItem(data.item);
-        setCurrentBid(data.item.startingPrice);
+        setBids(data.item.bids);
         const now = new Date();
         setIsBidOpen(
           now >= new Date(data.item.startDate) &&
@@ -27,39 +27,51 @@ function ItemBid(props) {
       .catch((error) => {
         console.error("Error fetching item details:", error);
       });
+  };
+
+  useEffect(() => {
+    fetchItemData();
   }, [id]);
 
-  // const Items = {
-  //    image: "/item.jpg",
-  //    description: "game controller",
-  //    details: "play station 4 game controller in good condition ",
-  //    startingPrice: 100,
-  //    reservedPrice: 500,
-  //    startDate: "1/1/24",
-  //    endDate: "7/7/24",
-  // };
-  //   const { Item } = props;
+  console.log("Item--->", item);
 
-  console.log("Item--->", Item);
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setAmount(value);
+  };
 
-  const handleBidChange = (e) => {
+  const bidsCards = bids.map((bid) => <BidCard key={bid.id} bid={bid} />);
+
+  const handleBidSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
-    console.log(e);
-    console.log("current bid", currentBid);
-    const newBid = parseFloat(e.target[0].value);
-    console.log("new bid", newBid);
+    const newBid = parseFloat(amount);
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("user must signin");
+    }
 
-    if (newBid > currentBid && newBid > Item.startingPrice) {
-      setCurrentBid(newBid);
-      console.log("current bid: ", currentBid);
+    if (newBid > item.startingPrice) {
+      // setCurrentBid(newBid);
+      const response = await axios.post(
+        `http://localhost:5000/api/v1/item/${id}/bid`,
+        {
+          amount: newBid,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("request sent:", response);
+      setAmount("");
+      fetchItemData();
     } else {
-      console.log("new bid", newBid);
       setErrorMessage("Bid must be higher than current bid and starting price");
-
-      //  alert("Bid must be higher than current bid and starting price");
     }
   };
+
   const buyNow = () => {
     if (confirm("want to continue buying the item?")) {
       setIsBidOpen(false);
@@ -70,53 +82,63 @@ function ItemBid(props) {
     }
   };
 
-  if (!Item) {
+  if (!item) {
     return <div>Loading...</div>;
   }
 
   return (
-    // <main class="container">
-    // <div class="product-card">
-    // <img src={Items.image} alt={Items.description} />
-    //   <h3>Product Title 1</h3>
-    //   <p>A short description of product 1.</p>
-    //   <button>Add to Cart</button>
-    // </div>
-
-    // </main>
-    <div className="item">
+    <div className="item-page">
       <div className="item-img-container">
-        <img
-          className="item-img"
-          src={Item.imagePaths.split(" ")[0]}
-          alt={Item.description}
-        />
+        <img src={item.imagePaths.split(" ")[0]} alt={item.description} />
       </div>
       <div className="item-details-container">
         <div className="item-details">
-          <h3>{Item.name}</h3>
-          <h3>{Item.description}</h3>
-          <p>Starting Price: {Item.startingPrice}LE</p>
-          <p>Reserved Price: {Item.reservedPrice}LE</p>
-          <p>Start Date: {new Date(Item.startDate).toLocaleDateString()}</p>
-          <p>End Date: {new Date(Item.endDate).toLocaleDateString()}</p>
-          <div>
-            <p>{Item.details}</p>
+          <h2>{item.name}</h2>
+          <h4>{item.description}</h4>
+          <div className="item-bid-details">
+            <span>Starting Price: {item.startingPrice}LE</span>
+            <span>Reserved Price: {item.reservedPrice}LE</span>
           </div>
+          <div className="item-bid-details">
+            <span>
+              Start Date: {new Date(item.startDate).toLocaleDateString()}
+            </span>
+            <span>End Date: {new Date(item.endDate).toLocaleDateString()}</span>
+          </div>
+
+          {/* <div>
+            <p>{item.details}</p>
+          </div> */}
 
           {isBidOpen ? (
             <div className="bid-section">
-              <p>Current Bid: {currentBid}LE</p>
-              <form onSubmit={handleBidChange}>
-                <input type="number" />
+              <div className="item-bids">
+                {bidsCards.length ? bidsCards : "Be the first to make a bid"}
+              </div>
+              <form onSubmit={handleBidSubmit}>
+                <div className="bid-form">
+                  <input
+                    type="number"
+                    className="bid-input"
+                    onChange={handleInputChange}
+                    value={amount}
+                  />
+
+                  <button
+                    type="submit"
+                    id="place-bid-btn"
+                    disabled={amount >= item.reservedPrice}
+                  >
+                    Place Bid
+                  </button>
+                </div>
                 <span className="error-message">{errorMessage}</span>
-                <button disabled={currentBid >= Item.reservedPrice}>
-                  Place Bid
-                </button>
               </form>
-              <button id="buy-now-btn" onClick={buyNow}>
-                Buy now at {Item.reservedPrice}LE
-              </button>
+              {item.buyNowPrice && (
+                <button id="buy-now-btn" onClick={buyNow}>
+                  Buy now at {item.buyNowPrice}LE
+                </button>
+              )}
             </div>
           ) : (
             <p>Bidding Closed</p>
