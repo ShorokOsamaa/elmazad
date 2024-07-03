@@ -12,6 +12,7 @@ import AllItems from "./components/AllItemsPage";
 import AddItem from "./components/AddItem";
 import ItemBidPage from "./components/ItemBidPage.jsx";
 import CategoryPage from "./components/CategoryPage.jsx";
+import PaymentComponent from "./components/Payment";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/payment" element={<PaymentComponent/>} />
+          <Route path="/add-item" element={<AddItem/>} />
 
           {/* <Route path="/add-item" element={<AddItem />} />*/}
         </Routes>
